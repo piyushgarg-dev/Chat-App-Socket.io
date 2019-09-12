@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Chat App</title>
+    <style>
+      #messages {
+        border: 2px solid black;
+        width: 100%;
+        height: 500px;
+      }
+      #msg {
+        border: 2px solid black;
+        height: 30px;
+        width: 90%;
+      }
+      ul {
+        padding: 0px;
+      }
+      ul > li {
+        list-style: none;
+        padding: 20px;
+      }
+      ul > li:nth-child(odd) {
+        background-color: lightblue;
+      }
+      ul > li:nth-child(even) {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body class="container mt-2">
+    <h2 class="text-center">Chat App</h2>
+    <ul id="messages"></ul>
+    <form id="myform">
+      <div class="form-group">
+        <input type="text" id="msg" />
+        <input class="btn btn-success" type="submit" />
+      </div>
+    </form>
+
+    <script src="socket.js"></script>
+    <script>
+      console.log("Client Loaded");
+      const socket = io();
+      const form = document.getElementById("myform");
+      const messagebox = document.getElementById("messages");
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        const msg = document.getElementById("msg");
+        socket.emit("chat message", msg.value);
+        msg.value = " ";
+      });
+      socket.on("chat message", msg => {
+        console.log("Client: New Message: ", msg);
+        const li = document.createElement("li");
+        li.innerHTML = msg;
+        messagebox.appendChild(li);
+      });
+    </script>
+  </body>
+</html>
