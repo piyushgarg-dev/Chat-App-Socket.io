@@ -10,6 +10,7 @@ app.use(bodyparser.urlencoded({ extended: false }));
 app.use(express.json());
 //app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 
+
 app.get("/", (req, res) => {
   res.send("index");
 });
