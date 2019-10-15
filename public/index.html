@@ -57,20 +57,23 @@
         list-style: none;
         padding: 20px;
         font-size: 15px;
-        margin-bottom: 5px;
       }
       ul > li:nth-child(odd) {
         background-color: #edf1fe;
         float: left;
-        border-radius: 40%;
-        margin-right: 90%;
+        border-top-right-radius: 5px; 
+        border-bottom-right-radius: 20px;
+        border-left: 5px solid blue;
+        margin-right: 95%;
         box-shadow: 1px 1px 1px 0px #6A33D3;
       }
       ul > li:nth-child(even) {
         background-color: #FFFAFA;
         float: right;
-        border-radius: 40%;
-        /* margin-left: 100%; */
+        border-top-left-radius: 20px; 
+        border-bottom-left-radius: 5px;
+        border-right: 5px solid #464040;
+        margin-left: 95%;
       }
     </style>
   </head>
@@ -85,7 +88,8 @@
       <button style=" width: 10%; float: right;" type="submit"><i class="fa fa-paper-plane"></i></button>
     </div>
     </form>
-    <h1 class="text-center"></h1>
+    <h1 class="text-center">Made By Piyush</h1>
+    <h1 class="text-center">Designed By Ashmit</h1>
     <script src="socket.js"></script>
     <script>
       console.log("Client Loaded");
