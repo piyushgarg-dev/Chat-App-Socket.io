@@ -105,8 +105,10 @@
       form.addEventListener("submit", e => {
         e.preventDefault();
         const msg = document.getElementById("msg");
-        socket.emit("chat message", msg.value);
+         if(msg.value.trim()!==''){
+          socket.emit("chat message", msg.value);
         msg.value = " ";
+        }
       });
       socket.on("chat message", msg => {
         console.log("Client: New Message: ", msg);
