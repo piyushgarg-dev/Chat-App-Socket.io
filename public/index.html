@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -75,10 +76,15 @@
         border-right: 5px solid #464040;
         margin-left: 95%;
       }
+      #link-style:hover
+      {
+        text-decoration: none;
+        font-family: cursive;
+      }
     </style>
   </head>
   <body class="container mt-2">
-    <h2 class="text-center">CHAT APP</h2>
+    <h1 style="font-family: 'Hepta Slab', serif; color: #3C40C6;" class="text-center"><i>CHAT APP</i></h1>
     <ul id="messages">
       
     </ul>
@@ -88,8 +94,8 @@
       <button style=" width: 10%; float: right;" type="submit"><i class="fa fa-paper-plane"></i></button>
     </div>
     </form>
-    <h1 class="text-center">Made By Piyush</h1>
-    <h1 class="text-center">Designed By Ashmit</h1>
+    <h4 style="font-family: 'Hepta Slab', serif; color: #3C40C6;" class="text-center">Made By <a id="link-style" title="GitHub" href="https://github.com/piyushgarg195"><i>Piyush</i></a></h4>
+    <h4 style="font-family: 'Hepta Slab', serif; color: #3C40C6;" class="text-center">Designed By <a id="link-style" title="GitHub" href="https://github.com/ashmitmittal"><i>Ashmit</i></a></h4>
     <script src="socket.js"></script>
     <script>
       console.log("Client Loaded");
